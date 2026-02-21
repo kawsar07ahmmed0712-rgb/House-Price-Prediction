@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Profile | Ames Price Intelligence</title>
+    <meta
+      name="description"
+      content="Data-quality profile from ames_house_prices_profile.html with missingness, imbalance and zero-heavy feature diagnostics."
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/js/metrics.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Ames Price Intelligence</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a class="nav-link" href="index.html">Overview</a>
+          <a class="nav-link" href="market.html">Market Pulse</a>
+          <a class="nav-link" href="drivers.html">Key Drivers</a>
+          <a class="nav-link" href="profile.html">Data Profile</a>
+          <a class="nav-link" href="strategy.html">Strategy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            from ames_house_prices_profile.html
+          </div>
+          <h1>Deep data profile: missingness, imbalance, zero-dominance, and alert diagnostics.</h1>
+          <p>
+            This page adds the profile-report layer on top of notebook EDA. It summarizes structural data
+            quality and feature warning signals extracted from your YData profile output.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="../ames_house_prices_profile.html">Open Full Profile HTML</a>
+            <a class="btn btn-ghost" href="strategy.html">Back to Strategy</a>
+          </div>
+          <div class="meta-row" style="margin-top: 1rem">
+            <span class="chip">Alerts: <span data-metric="profile_overview.alert_count" data-format="number"></span></span>
+            <span class="chip">Rows: <span data-metric="profile_overview.dataset_statistics.number_of_observations" data-format="number"></span></span>
+            <span class="chip">Variables: <span data-metric="profile_overview.dataset_statistics.number_of_variables" data-format="number"></span></span>
+          </div>
+        </div>
+
+        <article class="panel panel-pad reveal">
+          <h3>Dataset Statistics</h3>
+          <div class="kpi-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; margin-top: 0.85rem">
+            <div class="kpi-card">
+              <div class="kpi-label">Missing Cells</div>
+              <div class="kpi-value" data-metric="profile_overview.dataset_statistics.missing_cells" data-format="compact"></div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Missing Rate</div>
+              <div class="kpi-value" data-metric="profile_overview.dataset_statistics.missing_cells_pct" data-format="percent"></div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Total Memory</div>
+              <div class="kpi-value" data-metric="profile_overview.dataset_statistics.total_memory_size_text"></div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Record Size</div>
+              <div class="kpi-value" data-metric="profile_overview.dataset_statistics.average_record_size_text"></div>
+            </div>
+          </div>
+          <div class="meta-row" style="margin-top: 0.8rem">
+            <span class="chip">Numeric: <span data-metric="profile_overview.variable_types.numeric" data-format="number"></span></span>
+            <span class="chip">Categorical: <span data-metric="profile_overview.variable_types.categorical" data-format="number"></span></span>
+            <span class="chip">Boolean: <span data-metric="profile_overview.variable_types.boolean" data-format="number"></span></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="section-head reveal">
+          <h2>Alert Distribution</h2>
+          <p>Count of profile warnings by type.</p>
+        </div>
+        <div id="alert-type-grid" class="badge-grid"></div>
+      </section>
+
+      <section class="section">
+        <div class="panel-grid chart-stack">
+          <article class="panel chart-lg reveal">
+            <img class="chart-img" data-chart="missingness_heatmap_top20" alt="Missingness heatmap for top columns" />
+            <div class="panel-pad">
+              <h3>Missingness Heatmap</h3>
+              <p class="chart-caption">
+                High missing-rate variables align with amenity/absence fields and require explicit category encoding.
+              </p>
+            </div>
+          </article>
+
+          <article class="panel chart-lg reveal">
+            <img class="chart-img" data-chart="correlation_heatmap_full" alt="Correlation heatmap from notebook" />
+            <div class="panel-pad">
+              <h3>Correlation Landscape</h3>
+              <p class="chart-caption">Profile diagnostics should be interpreted together with feature relationship strength.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="split">
+          <article class="panel panel-pad reveal">
+            <h3>Top Missing Alerts</h3>
+            <p class="muted" style="margin-bottom: 0.85rem">Columns with largest missing percentages in profile alerts.</p>
+            <table id="profile-missing-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Feature</th>
+                  <th>Missing Count</th>
+                  <th>Missing %</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </article>
+
+          <article class="panel panel-pad reveal">
+            <h3>Top Zero-Dominant Features</h3>
+            <p class="muted" style="margin-bottom: 0.85rem">Numeric features where zeros dominate the distribution.</p>
+            <table id="profile-zero-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Feature</th>
+                  <th>Zero Count</th>
+                  <th>Zero %</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="split">
+          <article class="panel panel-pad reveal">
+            <h3>Most Imbalanced Categorical Signals</h3>
+            <p class="muted" style="margin-bottom: 0.85rem">Dominant category share from imbalance alerts.</p>
+            <table id="profile-imbalance-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Feature</th>
+                  <th>Dominant %</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </article>
+
+          <article class="panel chart-md reveal">
+            <img class="chart-img" data-chart="saleprice_iqr_boxplots" alt="Sale price IQR comparison chart" />
+            <div class="panel-pad">
+              <h3>IQR Treatment Check</h3>
+              <p class="chart-caption">Use this with profile alerts to decide robust preprocessing priorities.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel-grid chart-stack">
+          <article class="panel chart-md reveal">
+            <img class="chart-img" data-chart="qq_raw_vs_log" alt="QQ plot comparison raw vs log target" />
+            <div class="panel-pad">
+              <h3>Distribution Normality Diagnostic</h3>
+              <p class="chart-caption">Profile and notebook together show why `log1p(SalePrice)` is preferred for modeling.</p>
+            </div>
+          </article>
+          <article class="panel chart-md reveal">
+            <img class="chart-img" data-chart="overallqual_vs_log_saleprice" alt="Overall quality versus log saleprice chart" />
+            <div class="panel-pad">
+              <h3>Quality Signal on Log Target</h3>
+              <p class="chart-caption">Stable monotonic behavior remains after transformation.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <article class="panel panel-pad reveal">
+          <h3>Top Alert Messages (First 20)</h3>
+          <p class="muted" style="margin-bottom: 0.85rem">
+            Sample of parsed alert messages from the profile report for quick triage.
+          </p>
+          <table id="profile-alert-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Feature</th>
+                <th>Type</th>
+                <th>Message</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">Profile diagnostics sourced from `ames_house_prices_profile.html`. <span id="year"></span></div>
+    </footer>
+  </body>
+</html>

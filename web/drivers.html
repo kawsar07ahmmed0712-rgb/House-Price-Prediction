@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Key Drivers | Ames Price Intelligence</title>
+    <meta name="description" content="Correlation and feature-driver analysis for Ames house prices." />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/js/metrics.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Ames Price Intelligence</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a class="nav-link" href="index.html">Overview</a>
+          <a class="nav-link" href="market.html">Market Pulse</a>
+          <a class="nav-link" href="drivers.html">Key Drivers</a>
+          <a class="nav-link" href="profile.html">Data Profile</a>
+          <a class="nav-link" href="strategy.html">Strategy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            phase 3 feature insights
+          </div>
+          <h1>Feature importance story: quality, size, and utility dominate.</h1>
+          <p>
+            This page consolidates correlations, regression-style scatter plots, and heatmaps to explain
+            what most strongly moves SalePrice in your notebook analysis.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="strategy.html">Use in Strategy Page</a>
+            <a class="btn btn-ghost" href="profile.html">Inspect Data Profile</a>
+          </div>
+        </div>
+        <article class="panel panel-pad reveal">
+          <h3>Top Driver Cards</h3>
+          <p class="muted" style="margin-bottom: 0.75rem">Notebook-selected top 3 features.</p>
+          <div id="driver-cards" class="summary-cards"></div>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="panel-grid chart-stack">
+          <article class="panel chart-lg reveal">
+            <img class="chart-img" data-chart="correlation_heatmap_full" alt="Full correlation heatmap" />
+            <div class="panel-pad">
+              <h3>Correlation Heatmap</h3>
+              <p class="chart-caption">Full numeric relationship map generated during EDA.</p>
+            </div>
+          </article>
+          <article class="panel chart-lg reveal">
+            <img class="chart-img" data-chart="qq_raw_vs_log" alt="QQ plots for raw and log targets" />
+            <div class="panel-pad">
+              <h3>Normality Check</h3>
+              <p class="chart-caption">Log transformation significantly improves target normality.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel-grid chart-stack">
+          <article class="panel chart-lg reveal">
+            <img class="chart-img" data-chart="top3_scatter_raw" alt="Top feature scatter against raw target" />
+            <div class="panel-pad">
+              <h3>Top 3 Features vs Raw SalePrice</h3>
+              <p class="chart-caption">Directional slopes are clear, but high-end variance remains.</p>
+            </div>
+          </article>
+          <article class="panel chart-lg reveal">
+            <img class="chart-img" data-chart="top3_scatter_log" alt="Top feature scatter against log target" />
+            <div class="panel-pad">
+              <h3>Top 3 Features vs log1p(SalePrice)</h3>
+              <p class="chart-caption">Patterns tighten after log transform, supporting modeling stability.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <article class="panel panel-pad reveal">
+          <h3>Top 10 Correlations with SalePrice</h3>
+          <p class="muted" style="margin-bottom: 0.85rem">Ranked values extracted from notebook cell output.</p>
+          <table id="correlation-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Feature</th>
+                <th>Correlation</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        Feature-driver and correlation diagnostics from `House-Price.ipynb`. <span id="year"></span>
+      </div>
+    </footer>
+  </body>
+</html>

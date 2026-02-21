@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strategy | Ames Price Intelligence</title>
+    <meta name="description" content="Managerial summary, data risks, and next-step roadmap from house-price EDA." />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/js/metrics.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Ames Price Intelligence</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a class="nav-link" href="index.html">Overview</a>
+          <a class="nav-link" href="market.html">Market Pulse</a>
+          <a class="nav-link" href="drivers.html">Key Drivers</a>
+          <a class="nav-link" href="profile.html">Data Profile</a>
+          <a class="nav-link" href="strategy.html">Strategy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            phase 4 managerial summary
+          </div>
+          <h1>From EDA insight to action plan: what to do next for modeling.</h1>
+          <p>
+            This strategy page translates notebook findings into a decision-ready summary for stakeholders:
+            top value levers, data quality risks, and recommended execution sequence.
+          </p>
+          <div class="meta-row" style="margin-top: 1rem">
+            <span class="chip">Rows analyzed: <span data-metric="summary.rows_after_iqr" data-format="number"></span></span>
+            <span class="chip">Top area: <span data-metric="top_neighborhood.neighborhood"></span></span>
+            <span class="chip">Median: <span data-metric="summary.median_saleprice" data-format="currency"></span></span>
+          </div>
+        </div>
+        <article class="panel panel-pad reveal">
+          <h3>Managerial Scoreboard</h3>
+          <div class="kpi-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; margin-top: 0.8rem">
+            <div class="kpi-card">
+              <div class="kpi-label">Skewness</div>
+              <div class="kpi-value" data-metric="summary.saleprice_skew" data-format="decimal"></div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Kurtosis</div>
+              <div class="kpi-value" data-metric="summary.saleprice_kurtosis" data-format="decimal"></div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Outlier %</div>
+              <div class="kpi-value" data-metric="summary.rows_removed_pct_iqr" data-format="percent"></div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Top Mean Price</div>
+              <div class="kpi-value" data-metric="top_neighborhood.mean_saleprice" data-format="currency"></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="section-head reveal">
+          <h2>Profile Alert Mix</h2>
+          <p>Alert categories imported from the profiling report.</p>
+        </div>
+        <div id="alert-type-grid" class="badge-grid"></div>
+      </section>
+
+      <section class="section">
+        <div class="summary-cards">
+          <article class="summary-card accent reveal">
+            <div class="summary-title">Top Value Drivers</div>
+            <ul id="drivers-bullets" class="feature-list"></ul>
+          </article>
+          <article class="summary-card warn reveal">
+            <div class="summary-title">Data Risks</div>
+            <ul id="risk-bullets" class="feature-list"></ul>
+          </article>
+          <article class="summary-card reveal">
+            <div class="summary-title">Recommended Next Steps</div>
+            <ul id="next-steps-bullets" class="feature-list"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel-grid chart-stack">
+          <article class="panel chart-lg reveal">
+            <img class="chart-img" data-chart="missingness_heatmap_top20" alt="Missingness heatmap for top 20 columns" />
+            <div class="panel-pad">
+              <h3>Missingness Pattern</h3>
+              <p class="chart-caption">High-missing columns mostly represent amenity absence and need explicit encoding.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel-grid">
+          <article class="panel panel-pad reveal">
+            <h3>Top Missing Features</h3>
+            <p class="muted" style="margin-bottom: 0.85rem">
+              Prioritize these in your imputation and category encoding strategy.
+            </p>
+            <table id="missing-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Missing Count</th>
+                  <th>Missing %</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        Managerial summary page generated from notebook outputs. <span id="year"></span>
+      </div>
+    </footer>
+  </body>
+</html>

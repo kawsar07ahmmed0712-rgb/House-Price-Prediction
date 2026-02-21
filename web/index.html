@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ames House Price Dashboard</title>
+    <meta
+      name="description"
+      content="Multi-page house price analysis dashboard built from House-Price.ipynb insights."
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/js/metrics.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Ames Price Intelligence</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a class="nav-link" href="index.html">Overview</a>
+          <a class="nav-link" href="market.html">Market Pulse</a>
+          <a class="nav-link" href="drivers.html">Key Drivers</a>
+          <a class="nav-link" href="profile.html">Data Profile</a>
+          <a class="nav-link" href="strategy.html">Strategy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            notebook-driven dashboard
+          </div>
+          <h1>House Price Analytics, redesigned as a clean multi-page website.</h1>
+          <p>
+            This dashboard translates your <strong>House-Price.ipynb</strong> into an executive-ready
+            web experience. All KPI cards and chart panels are extracted from notebook outputs to keep
+            results aligned with your EDA flow.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="drivers.html">Explore Top Drivers</a>
+            <a class="btn btn-ghost" href="profile.html">Open Data Profile</a>
+          </div>
+          <div class="meta-row" style="margin-top: 1rem">
+            <span class="chip">Rows: <span data-metric="summary.total_rows" data-format="number"></span></span>
+            <span class="chip">Features: <span data-metric="summary.total_columns" data-format="number"></span></span>
+            <span class="chip">Profile alerts: <span data-metric="profile_overview.alert_count" data-format="number"></span></span>
+            <span class="chip">Generated: <span data-generated-at></span></span>
+          </div>
+        </div>
+
+        <figure class="hero-panel reveal">
+          <img data-chart="dashboard_mockup" alt="Dashboard preview from notebook" />
+          <figcaption class="hero-badge">Notebook Snapshot</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <div class="section-head reveal">
+          <h2>Executive Snapshot</h2>
+          <p>Immediate readout of price level, spread, and outlier handling.</p>
+        </div>
+        <div class="kpi-grid">
+          <article class="kpi-card reveal">
+            <div class="kpi-label">Mean Sale Price</div>
+            <div class="kpi-value" data-metric="summary.mean_saleprice" data-format="currency"></div>
+            <p class="kpi-note">Portfolio-wide average across all observations.</p>
+          </article>
+          <article class="kpi-card reveal">
+            <div class="kpi-label">Median Sale Price</div>
+            <div class="kpi-value" data-metric="summary.median_saleprice" data-format="currency"></div>
+            <p class="kpi-note">Middle point of transaction values.</p>
+          </article>
+          <article class="kpi-card reveal">
+            <div class="kpi-label">Target Skewness</div>
+            <div class="kpi-value" data-metric="summary.saleprice_skew" data-format="decimal"></div>
+            <p class="kpi-note">Right skew confirms high-end tail behavior.</p>
+          </article>
+          <article class="kpi-card reveal">
+            <div class="kpi-label">Outliers Removed</div>
+            <div class="kpi-value" data-metric="summary.rows_removed_iqr" data-format="number"></div>
+            <p class="kpi-note">
+              <span data-metric="summary.rows_removed_pct_iqr" data-format="percent"></span> of rows via
+              IQR filtering.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head reveal">
+          <h2>Profile Snapshot</h2>
+          <p>Added from `ames_house_prices_profile.html` overview and alerts.</p>
+        </div>
+        <div class="kpi-grid">
+          <article class="kpi-card reveal">
+            <div class="kpi-label">Total Alerts</div>
+            <div class="kpi-value" data-metric="profile_overview.alert_count" data-format="number"></div>
+            <p class="kpi-note">Full profile anomaly + quality checks.</p>
+          </article>
+          <article class="kpi-card reveal">
+            <div class="kpi-label">Missing Cells</div>
+            <div class="kpi-value" data-metric="profile_overview.dataset_statistics.missing_cells" data-format="compact"></div>
+            <p class="kpi-note">
+              <span data-metric="profile_overview.dataset_statistics.missing_cells_pct" data-format="percent"></span>
+              of all cells.
+            </p>
+          </article>
+          <article class="kpi-card reveal">
+            <div class="kpi-label">Profile Variables</div>
+            <div class="kpi-value" data-metric="profile_overview.dataset_statistics.number_of_variables" data-format="number"></div>
+            <p class="kpi-note">Detected by YData profile analysis.</p>
+          </article>
+          <article class="kpi-card reveal">
+            <div class="kpi-label">Memory Footprint</div>
+            <div class="kpi-value" data-metric="profile_overview.dataset_statistics.total_memory_size_text"></div>
+            <p class="kpi-note"><a class="note-link" href="profile.html">See alert tables and details</a></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel-grid chart-stack">
+          <article class="panel chart-lg reveal">
+            <img class="chart-img" data-chart="saleprice_distribution" alt="SalePrice distribution chart" />
+            <div class="panel-pad">
+              <h3>Raw Distribution</h3>
+              <p class="chart-caption">
+                Original SalePrice is right-skewed, with expensive homes stretching the upper tail.
+              </p>
+            </div>
+          </article>
+          <article class="panel chart-lg reveal">
+            <img class="chart-img" data-chart="saleprice_log_distribution" alt="Log transformed distribution chart" />
+            <div class="panel-pad">
+              <h3>Log-Transformed Distribution</h3>
+              <p class="chart-caption">
+                `log1p(SalePrice)` smooths skew and prepares the target for stable regression modeling.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="split">
+          <article class="panel panel-pad reveal">
+            <h3>Top Price Drivers</h3>
+            <p class="muted" style="margin-bottom: 0.8rem">
+              Highest ranked correlations with SalePrice from your notebook.
+            </p>
+            <div id="driver-cards" class="summary-cards"></div>
+          </article>
+
+          <article class="panel panel-pad reveal">
+            <h3>Highest-Priced Neighborhood</h3>
+            <p class="muted" style="margin-bottom: 0.9rem">
+              Notebook highlight: "Beverly Hills of Ames".
+            </p>
+            <div class="kpi-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem">
+              <div class="kpi-card">
+                <div class="kpi-label">Neighborhood</div>
+                <div class="kpi-value" data-metric="top_neighborhood.neighborhood"></div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">Mean Price</div>
+                <div class="kpi-value" data-metric="top_neighborhood.mean_saleprice" data-format="currency"></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        Built from `House-Price.ipynb` outputs. <span id="year"></span>
+      </div>
+    </footer>
+  </body>
+</html>

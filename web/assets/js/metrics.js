@@ -1,0 +1,872 @@
+window.dashboardMetrics = {
+  "meta": {
+    "generated_at_utc": "2026-02-21T15:26:30.558663+00:00",
+    "source_notebook": "House-Price.ipynb",
+    "source_note": "Values and chart outputs extracted from executed notebook cells.",
+    "source_profile": "ames_house_prices_profile.html"
+  },
+  "summary": {
+    "total_rows": 1460,
+    "total_columns": 81,
+    "numeric_features": 37,
+    "categorical_features": 43,
+    "mean_saleprice": 180921.2,
+    "median_saleprice": 163000.0,
+    "saleprice_skew": 1.88,
+    "saleprice_kurtosis": 6.54,
+    "q1": 129975.0,
+    "q3": 214000.0,
+    "iqr_value": 84025.0,
+    "iqr_lower_bound": 3937.5,
+    "iqr_upper_bound": 340037.5,
+    "rows_before_iqr": 1460,
+    "rows_after_iqr": 1399,
+    "rows_removed_iqr": 61,
+    "rows_removed_pct_iqr": 4.18
+  },
+  "top_correlations": [
+    {
+      "feature": "SalePrice_log",
+      "correlation": 0.97
+    },
+    {
+      "feature": "OverallQual",
+      "correlation": 0.78
+    },
+    {
+      "feature": "GrLivArea",
+      "correlation": 0.66
+    },
+    {
+      "feature": "GarageCars",
+      "correlation": 0.63
+    },
+    {
+      "feature": "GarageArea",
+      "correlation": 0.61
+    },
+    {
+      "feature": "FullBath",
+      "correlation": 0.58
+    },
+    {
+      "feature": "YearBuilt",
+      "correlation": 0.56
+    },
+    {
+      "feature": "TotalBsmtSF",
+      "correlation": 0.54
+    },
+    {
+      "feature": "YearRemodAdd",
+      "correlation": 0.54
+    },
+    {
+      "feature": "1stFlrSF",
+      "correlation": 0.52
+    }
+  ],
+  "top_drivers": [
+    {
+      "feature": "SalePrice_log",
+      "correlation": 0.97
+    },
+    {
+      "feature": "OverallQual",
+      "correlation": 0.78
+    },
+    {
+      "feature": "GrLivArea",
+      "correlation": 0.66
+    }
+  ],
+  "top_neighborhoods": [
+    {
+      "neighborhood": "NoRidge",
+      "mean_saleprice": 282386.93,
+      "median_saleprice": 282500.0,
+      "count": 30
+    },
+    {
+      "neighborhood": "NridgHt",
+      "mean_saleprice": 260396.52,
+      "median_saleprice": 274450.0,
+      "count": 50
+    },
+    {
+      "neighborhood": "StoneBr",
+      "mean_saleprice": 239312.5,
+      "median_saleprice": 237750.0,
+      "count": 16
+    },
+    {
+      "neighborhood": "Timber",
+      "mean_saleprice": 230914.37,
+      "median_saleprice": 224500.0,
+      "count": 35
+    },
+    {
+      "neighborhood": "Veenker",
+      "mean_saleprice": 224150.0,
+      "median_saleprice": 206000.0,
+      "count": 10
+    },
+    {
+      "neighborhood": "Somerst",
+      "mean_saleprice": 221295.1,
+      "median_saleprice": 223500.0,
+      "count": 84
+    },
+    {
+      "neighborhood": "ClearCr",
+      "mean_saleprice": 212565.43,
+      "median_saleprice": 200250.0,
+      "count": 28
+    },
+    {
+      "neighborhood": "Crawfor",
+      "mean_saleprice": 200192.94,
+      "median_saleprice": 195550.0,
+      "count": 48
+    },
+    {
+      "neighborhood": "CollgCr",
+      "mean_saleprice": 195175.85,
+      "median_saleprice": 195950.0,
+      "count": 148
+    },
+    {
+      "neighborhood": "Blmngtn",
+      "mean_saleprice": 194870.88,
+      "median_saleprice": 191000.0,
+      "count": 17
+    }
+  ],
+  "top_neighborhood": {
+    "neighborhood": "NoRidge",
+    "mean_saleprice": 282386.93,
+    "median_saleprice": 282500.0,
+    "count": 30
+  },
+  "top_missing_features": [
+    {
+      "feature": "PoolQC",
+      "missing_count": 1393,
+      "missing_pct": 99.57
+    },
+    {
+      "feature": "MiscFeature",
+      "missing_count": 1345,
+      "missing_pct": 96.14
+    },
+    {
+      "feature": "Alley",
+      "missing_count": 1308,
+      "missing_pct": 93.5
+    },
+    {
+      "feature": "Fence",
+      "missing_count": 1122,
+      "missing_pct": 80.2
+    },
+    {
+      "feature": "MasVnrType",
+      "missing_count": 861,
+      "missing_pct": 61.54
+    },
+    {
+      "feature": "FireplaceQu",
+      "missing_count": 689,
+      "missing_pct": 49.25
+    },
+    {
+      "feature": "LotFrontage",
+      "missing_count": 256,
+      "missing_pct": 18.3
+    },
+    {
+      "feature": "GarageType",
+      "missing_count": 81,
+      "missing_pct": 5.79
+    },
+    {
+      "feature": "GarageYrBlt",
+      "missing_count": 81,
+      "missing_pct": 5.79
+    },
+    {
+      "feature": "GarageFinish",
+      "missing_count": 81,
+      "missing_pct": 5.79
+    },
+    {
+      "feature": "GarageQual",
+      "missing_count": 81,
+      "missing_pct": 5.79
+    },
+    {
+      "feature": "GarageCond",
+      "missing_count": 81,
+      "missing_pct": 5.79
+    },
+    {
+      "feature": "BsmtExposure",
+      "missing_count": 38,
+      "missing_pct": 2.72
+    },
+    {
+      "feature": "BsmtFinType2",
+      "missing_count": 38,
+      "missing_pct": 2.72
+    },
+    {
+      "feature": "BsmtQual",
+      "missing_count": 37,
+      "missing_pct": 2.64
+    },
+    {
+      "feature": "BsmtCond",
+      "missing_count": 37,
+      "missing_pct": 2.64
+    },
+    {
+      "feature": "BsmtFinType1",
+      "missing_count": 37,
+      "missing_pct": 2.64
+    },
+    {
+      "feature": "MasVnrArea",
+      "missing_count": 7,
+      "missing_pct": 0.5
+    },
+    {
+      "feature": "Electrical",
+      "missing_count": 1,
+      "missing_pct": 0.07
+    }
+  ],
+  "profile_overview": {
+    "meta": {
+      "source_file": "ames_house_prices_profile.html",
+      "report_generated_at": "2026-02-20 21:56:51.263329"
+    },
+    "dataset_statistics": {
+      "number_of_variables": 82,
+      "number_of_observations": 1460,
+      "missing_cells": 7829,
+      "missing_cells_pct": 6.5,
+      "total_memory_size_text": "935.4 KiB",
+      "total_memory_size_bytes": 957849.6,
+      "average_record_size_text": "656.1 B",
+      "average_record_size_bytes": 656.1
+    },
+    "variable_types": {
+      "numeric": 31,
+      "categorical": 50,
+      "boolean": 1
+    },
+    "alert_count": 60,
+    "alert_type_counts": {
+      "Imbalance": 25,
+      "Missing": 17,
+      "Skewed": 1,
+      "Uniform": 1,
+      "Unique": 1,
+      "Zeros": 15
+    },
+    "top_missing_alerts": [
+      {
+        "feature": "PoolQC",
+        "missing_count": 1453,
+        "missing_pct": 99.5,
+        "message": "has 1453 (99.5%) missing values"
+      },
+      {
+        "feature": "MiscFeature",
+        "missing_count": 1406,
+        "missing_pct": 96.3,
+        "message": "has 1406 (96.3%) missing values"
+      },
+      {
+        "feature": "Alley",
+        "missing_count": 1369,
+        "missing_pct": 93.8,
+        "message": "has 1369 (93.8%) missing values"
+      },
+      {
+        "feature": "Fence",
+        "missing_count": 1179,
+        "missing_pct": 80.8,
+        "message": "has 1179 (80.8%) missing values"
+      },
+      {
+        "feature": "MasVnrType",
+        "missing_count": 872,
+        "missing_pct": 59.7,
+        "message": "has 872 (59.7%) missing values"
+      },
+      {
+        "feature": "FireplaceQu",
+        "missing_count": 690,
+        "missing_pct": 47.3,
+        "message": "has 690 (47.3%) missing values"
+      },
+      {
+        "feature": "LotFrontage",
+        "missing_count": 259,
+        "missing_pct": 17.7,
+        "message": "has 259 (17.7%) missing values"
+      },
+      {
+        "feature": "GarageType",
+        "missing_count": 81,
+        "missing_pct": 5.5,
+        "message": "has 81 (5.5%) missing values"
+      },
+      {
+        "feature": "GarageYrBlt",
+        "missing_count": 81,
+        "missing_pct": 5.5,
+        "message": "has 81 (5.5%) missing values"
+      },
+      {
+        "feature": "GarageFinish",
+        "missing_count": 81,
+        "missing_pct": 5.5,
+        "message": "has 81 (5.5%) missing values"
+      },
+      {
+        "feature": "GarageQual",
+        "missing_count": 81,
+        "missing_pct": 5.5,
+        "message": "has 81 (5.5%) missing values"
+      },
+      {
+        "feature": "GarageCond",
+        "missing_count": 81,
+        "missing_pct": 5.5,
+        "message": "has 81 (5.5%) missing values"
+      },
+      {
+        "feature": "BsmtExposure",
+        "missing_count": 38,
+        "missing_pct": 2.6,
+        "message": "has 38 (2.6%) missing values"
+      },
+      {
+        "feature": "BsmtFinType2",
+        "missing_count": 38,
+        "missing_pct": 2.6,
+        "message": "has 38 (2.6%) missing values"
+      },
+      {
+        "feature": "BsmtQual",
+        "missing_count": 37,
+        "missing_pct": 2.5,
+        "message": "has 37 (2.5%) missing values"
+      }
+    ],
+    "top_zero_alerts": [
+      {
+        "feature": "PoolArea",
+        "zero_count": 1453,
+        "zero_pct": 99.5,
+        "message": "has 1453 (99.5%) zeros"
+      },
+      {
+        "feature": "3SsnPorch",
+        "zero_count": 1436,
+        "zero_pct": 98.4,
+        "message": "has 1436 (98.4%) zeros"
+      },
+      {
+        "feature": "LowQualFinSF",
+        "zero_count": 1434,
+        "zero_pct": 98.2,
+        "message": "has 1434 (98.2%) zeros"
+      },
+      {
+        "feature": "MiscVal",
+        "zero_count": 1408,
+        "zero_pct": 96.4,
+        "message": "has 1408 (96.4%) zeros"
+      },
+      {
+        "feature": "ScreenPorch",
+        "zero_count": 1344,
+        "zero_pct": 92.1,
+        "message": "has 1344 (92.1%) zeros"
+      },
+      {
+        "feature": "BsmtFinSF2",
+        "zero_count": 1293,
+        "zero_pct": 88.6,
+        "message": "has 1293 (88.6%) zeros"
+      },
+      {
+        "feature": "EnclosedPorch",
+        "zero_count": 1252,
+        "zero_pct": 85.8,
+        "message": "has 1252 (85.8%) zeros"
+      },
+      {
+        "feature": "MasVnrArea",
+        "zero_count": 861,
+        "zero_pct": 59.0,
+        "message": "has 861 (59.0%) zeros"
+      },
+      {
+        "feature": "2ndFlrSF",
+        "zero_count": 829,
+        "zero_pct": 56.8,
+        "message": "has 829 (56.8%) zeros"
+      },
+      {
+        "feature": "WoodDeckSF",
+        "zero_count": 761,
+        "zero_pct": 52.1,
+        "message": "has 761 (52.1%) zeros"
+      },
+      {
+        "feature": "OpenPorchSF",
+        "zero_count": 656,
+        "zero_pct": 44.9,
+        "message": "has 656 (44.9%) zeros"
+      },
+      {
+        "feature": "BsmtFinSF1",
+        "zero_count": 467,
+        "zero_pct": 32.0,
+        "message": "has 467 (32.0%) zeros"
+      },
+      {
+        "feature": "BsmtUnfSF",
+        "zero_count": 118,
+        "zero_pct": 8.1,
+        "message": "has 118 (8.1%) zeros"
+      },
+      {
+        "feature": "GarageArea",
+        "zero_count": 81,
+        "zero_pct": 5.5,
+        "message": "has 81 (5.5%) zeros"
+      },
+      {
+        "feature": "TotalBsmtSF",
+        "zero_count": 37,
+        "zero_pct": 2.5,
+        "message": "has 37 (2.5%) zeros"
+      }
+    ],
+    "top_imbalance_alerts": [
+      {
+        "feature": "Utilities",
+        "dominant_pct": 99.2,
+        "message": "is highly imbalanced (99.2%)"
+      },
+      {
+        "feature": "Condition2",
+        "dominant_pct": 96.4,
+        "message": "is highly imbalanced (96.4%)"
+      },
+      {
+        "feature": "Street",
+        "dominant_pct": 96.2,
+        "message": "is highly imbalanced (96.2%)"
+      },
+      {
+        "feature": "RoofMatl",
+        "dominant_pct": 94.4,
+        "message": "is highly imbalanced (94.4%)"
+      },
+      {
+        "feature": "Heating",
+        "dominant_pct": 92.7,
+        "message": "is highly imbalanced (92.7%)"
+      },
+      {
+        "feature": "GarageCond",
+        "dominant_pct": 87.6,
+        "message": "is highly imbalanced (87.6%)"
+      },
+      {
+        "feature": "KitchenAbvGr",
+        "dominant_pct": 85.7,
+        "message": "is highly imbalanced (85.7%)"
+      },
+      {
+        "feature": "GarageQual",
+        "dominant_pct": 85.2,
+        "message": "is highly imbalanced (85.2%)"
+      },
+      {
+        "feature": "Functional",
+        "dominant_pct": 81.9,
+        "message": "is highly imbalanced (81.9%)"
+      },
+      {
+        "feature": "BsmtHalfBath",
+        "dominant_pct": 79.7,
+        "message": "is highly imbalanced (79.7%)"
+      },
+      {
+        "feature": "LandSlope",
+        "dominant_pct": 78.8,
+        "message": "is highly imbalanced (78.8%)"
+      },
+      {
+        "feature": "Electrical",
+        "dominant_pct": 78.2,
+        "message": "is highly imbalanced (78.2%)"
+      },
+      {
+        "feature": "BsmtCond",
+        "dominant_pct": 75.8,
+        "message": "is highly imbalanced (75.8%)"
+      },
+      {
+        "feature": "SaleType",
+        "dominant_pct": 75.3,
+        "message": "is highly imbalanced (75.3%)"
+      },
+      {
+        "feature": "ExterCond",
+        "dominant_pct": 72.8,
+        "message": "is highly imbalanced (72.8%)"
+      }
+    ],
+    "alerts": [
+      {
+        "feature": "MSZoning",
+        "message": "is highly imbalanced (56.9%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "Street",
+        "message": "is highly imbalanced (96.2%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "LandContour",
+        "message": "is highly imbalanced (68.3%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "Utilities",
+        "message": "is highly imbalanced (99.2%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "LandSlope",
+        "message": "is highly imbalanced (78.8%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "Condition1",
+        "message": "is highly imbalanced (71.7%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "Condition2",
+        "message": "is highly imbalanced (96.4%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "BldgType",
+        "message": "is highly imbalanced (59.4%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "RoofStyle",
+        "message": "is highly imbalanced (65.1%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "RoofMatl",
+        "message": "is highly imbalanced (94.4%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "ExterCond",
+        "message": "is highly imbalanced (72.8%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "BsmtCond",
+        "message": "is highly imbalanced (75.8%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "BsmtFinType2",
+        "message": "is highly imbalanced (70.1%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "Heating",
+        "message": "is highly imbalanced (92.7%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "CentralAir",
+        "message": "is highly imbalanced (65.3%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "Electrical",
+        "message": "is highly imbalanced (78.2%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "BsmtHalfBath",
+        "message": "is highly imbalanced (79.7%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "KitchenAbvGr",
+        "message": "is highly imbalanced (85.7%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "Functional",
+        "message": "is highly imbalanced (81.9%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "GarageQual",
+        "message": "is highly imbalanced (85.2%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "GarageCond",
+        "message": "is highly imbalanced (87.6%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "PavedDrive",
+        "message": "is highly imbalanced (69.9%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "MiscFeature",
+        "message": "is highly imbalanced (70.7%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "SaleType",
+        "message": "is highly imbalanced (75.3%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "SaleCondition",
+        "message": "is highly imbalanced (62.5%)",
+        "type": "Imbalance"
+      },
+      {
+        "feature": "LotFrontage",
+        "message": "has 259 (17.7%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "Alley",
+        "message": "has 1369 (93.8%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "MasVnrType",
+        "message": "has 872 (59.7%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "BsmtQual",
+        "message": "has 37 (2.5%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "BsmtCond",
+        "message": "has 37 (2.5%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "BsmtExposure",
+        "message": "has 38 (2.6%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "BsmtFinType1",
+        "message": "has 37 (2.5%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "BsmtFinType2",
+        "message": "has 38 (2.6%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "FireplaceQu",
+        "message": "has 690 (47.3%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "GarageType",
+        "message": "has 81 (5.5%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "GarageYrBlt",
+        "message": "has 81 (5.5%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "GarageFinish",
+        "message": "has 81 (5.5%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "GarageQual",
+        "message": "has 81 (5.5%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "GarageCond",
+        "message": "has 81 (5.5%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "PoolQC",
+        "message": "has 1453 (99.5%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "Fence",
+        "message": "has 1179 (80.8%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "MiscFeature",
+        "message": "has 1406 (96.3%) missing values",
+        "type": "Missing"
+      },
+      {
+        "feature": "MiscVal",
+        "message": "is highly skewed (\u03b31 = 24.47679419)",
+        "type": "Skewed"
+      },
+      {
+        "feature": "Id",
+        "message": "is uniformly distributed",
+        "type": "Uniform"
+      },
+      {
+        "feature": "Id",
+        "message": "has unique values",
+        "type": "Unique"
+      },
+      {
+        "feature": "MasVnrArea",
+        "message": "has 861 (59.0%) zeros",
+        "type": "Zeros"
+      },
+      {
+        "feature": "BsmtFinSF1",
+        "message": "has 467 (32.0%) zeros",
+        "type": "Zeros"
+      },
+      {
+        "feature": "BsmtFinSF2",
+        "message": "has 1293 (88.6%) zeros",
+        "type": "Zeros"
+      },
+      {
+        "feature": "BsmtUnfSF",
+        "message": "has 118 (8.1%) zeros",
+        "type": "Zeros"
+      },
+      {
+        "feature": "TotalBsmtSF",
+        "message": "has 37 (2.5%) zeros",
+        "type": "Zeros"
+      },
+      {
+        "feature": "2ndFlrSF",
+        "message": "has 829 (56.8%) zeros",
+        "type": "Zeros"
+      },
+      {
+        "feature": "LowQualFinSF",
+        "message": "has 1434 (98.2%) zeros",
+        "type": "Zeros"
+      },
+      {
+        "feature": "GarageArea",
+        "message": "has 81 (5.5%) zeros",
+        "type": "Zeros"
+      },
+      {
+        "feature": "WoodDeckSF",
+        "message": "has 761 (52.1%) zeros",
+        "type": "Zeros"
+      },
+      {
+        "feature": "OpenPorchSF",
+        "message": "has 656 (44.9%) zeros",
+        "type": "Zeros"
+      },
+      {
+        "feature": "EnclosedPorch",
+        "message": "has 1252 (85.8%) zeros",
+        "type": "Zeros"
+      },
+      {
+        "feature": "3SsnPorch",
+        "message": "has 1436 (98.4%) zeros",
+        "type": "Zeros"
+      },
+      {
+        "feature": "ScreenPorch",
+        "message": "has 1344 (92.1%) zeros",
+        "type": "Zeros"
+      },
+      {
+        "feature": "PoolArea",
+        "message": "has 1453 (99.5%) zeros",
+        "type": "Zeros"
+      },
+      {
+        "feature": "MiscVal",
+        "message": "has 1408 (96.4%) zeros",
+        "type": "Zeros"
+      }
+    ]
+  },
+  "managerial_summary": {
+    "top_drivers_plain_english": [
+      "Quality, living area, and utility space are the strongest value levers.",
+      "Log transform stabilizes SalePrice distribution for modeling.",
+      "Neighborhood premium effects are strong and interpretable."
+    ],
+    "risks": [
+      "High missing-rate fields often indicate absence of amenity, not random missingness.",
+      "Rare category segments can overfit if not regularized.",
+      "Untrimmed outliers can skew linear relationships."
+    ],
+    "next_steps": [
+      "Engineer total space and age-based features.",
+      "Encode none/absence categories explicitly for categorical fields.",
+      "Benchmark regularized linear models, then compare with tree ensembles."
+    ]
+  },
+  "chart_files": {
+    "saleprice_distribution": "assets/charts/saleprice_distribution.png",
+    "qq_raw_vs_log": "assets/charts/qq_raw_vs_log.png",
+    "saleprice_log_distribution": "assets/charts/saleprice_log_distribution.png",
+    "saleprice_iqr_boxplots": "assets/charts/saleprice_iqr_boxplots.png",
+    "missingness_heatmap_top20": "assets/charts/missingness_heatmap_top20.png",
+    "correlation_heatmap_full": "assets/charts/correlation_heatmap_full.png",
+    "top3_scatter_raw": "assets/charts/top3_scatter_raw.png",
+    "top3_scatter_log": "assets/charts/top3_scatter_log.png",
+    "overallqual_vs_saleprice": "assets/charts/overallqual_vs_saleprice.png",
+    "overallqual_vs_log_saleprice": "assets/charts/overallqual_vs_log_saleprice.png",
+    "top15_neighborhood_mean": "assets/charts/top15_neighborhood_mean.png",
+    "dashboard_mockup": "assets/charts/dashboard_mockup.png"
+  }
+};

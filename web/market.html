@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Market Pulse | Ames Price Intelligence</title>
+    <meta name="description" content="Neighborhood and outlier-based market pulse for Ames housing prices." />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/js/metrics.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Ames Price Intelligence</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a class="nav-link" href="index.html">Overview</a>
+          <a class="nav-link" href="market.html">Market Pulse</a>
+          <a class="nav-link" href="drivers.html">Key Drivers</a>
+          <a class="nav-link" href="profile.html">Data Profile</a>
+          <a class="nav-link" href="strategy.html">Strategy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            phase 2 + phase 3.4
+          </div>
+          <h1>Market pulse from IQR-cleaned prices and neighborhood segmentation.</h1>
+          <p>
+            This page tracks distribution cleanup and area-level premium zones. It reflects your notebook's
+            outlier treatment and neighborhood ranking analysis.
+          </p>
+          <div class="meta-row" style="margin-top: 1.3rem">
+            <span class="chip">Q1: <span data-metric="summary.q1" data-format="currency"></span></span>
+            <span class="chip">Q3: <span data-metric="summary.q3" data-format="currency"></span></span>
+            <span class="chip">IQR: <span data-metric="summary.iqr_value" data-format="currency"></span></span>
+          </div>
+        </div>
+        <article class="panel panel-pad reveal">
+          <h3>Outlier Treatment Stats</h3>
+          <div class="kpi-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; margin-top: 0.8rem">
+            <div class="kpi-card">
+              <div class="kpi-label">Rows Before</div>
+              <div class="kpi-value" data-metric="summary.rows_before_iqr" data-format="number"></div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Rows After</div>
+              <div class="kpi-value" data-metric="summary.rows_after_iqr" data-format="number"></div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Lower Bound</div>
+              <div class="kpi-value" data-metric="summary.iqr_lower_bound" data-format="currency"></div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Upper Bound</div>
+              <div class="kpi-value" data-metric="summary.iqr_upper_bound" data-format="currency"></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="panel-grid chart-stack">
+          <article class="panel chart-lg reveal">
+            <img class="chart-img" data-chart="saleprice_iqr_boxplots" alt="Before and after IQR filtering boxplots" />
+            <div class="panel-pad">
+              <h3>Before vs After IQR Filtering</h3>
+              <p class="chart-caption">Outlier clipping removes extreme sale values while preserving core market structure.</p>
+            </div>
+          </article>
+          <article class="panel chart-lg reveal">
+            <img class="chart-img" data-chart="top15_neighborhood_mean" alt="Top neighborhood average price chart" />
+            <div class="panel-pad">
+              <h3>Top 15 Neighborhood Means</h3>
+              <p class="chart-caption">Premium clusters are concentrated; NoRidge and NridgHt stay clearly ahead.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel-grid chart-stack">
+          <article class="panel chart-lg reveal">
+            <img class="chart-img" data-chart="overallqual_vs_saleprice" alt="Overall quality vs sale price boxplot" />
+            <div class="panel-pad">
+              <h3>Quality Bands vs Price</h3>
+              <p class="chart-caption">Quality uplift is monotonic across OverallQual tiers.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel-grid">
+          <article class="panel panel-pad reveal">
+            <h3>Top Neighborhood Table</h3>
+            <p class="muted" style="margin-bottom: 0.85rem">
+              Mean and median values from notebook neighborhood aggregation.
+            </p>
+            <table id="neighborhood-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Neighborhood</th>
+                  <th>Mean</th>
+                  <th>Median</th>
+                  <th>Count</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        Notebook-aligned neighborhood and outlier analysis. <span id="year"></span>
+      </div>
+    </footer>
+  </body>
+</html>
